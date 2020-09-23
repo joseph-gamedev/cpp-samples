@@ -2,7 +2,7 @@
 #include "Publisher.h"
 #include "Subscriber.h"
 #include "Message.h"
-#include "SubscriberService.h"
+#include "PublisherService.h"
 
 using namespace std;
 
@@ -37,14 +37,14 @@ public:
 int main()
 {	
 	TestSubscriber subscriber;
-	SubscriberService subscriberService;
-	subscriberService.AddSubscriber(TMsgType::kTestMsg, (Subscriber*)&subscriber);
+	PublisherService publisherService;
+	publisherService.AddSubscriber(TMsgType::kTestMsg, (Subscriber*)&subscriber);
 
 	TestPublisher publisher;
 	TestMsg* msg = new TestMsg();
-	publisher.PublishMessage(msg, &subscriberService);
-	subscriberService.BroadCast();
-	subscriberService.ClearAllMessages();
+	publisher.PublishMessage(msg, &publisherService);
+	publisherService.BroadCast();
+	publisherService.ClearAllMessages();
 
 	return 0;
 }

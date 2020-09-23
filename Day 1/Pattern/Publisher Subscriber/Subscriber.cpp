@@ -1,13 +1,13 @@
 #include "Subscriber.h"
 #include "Message.h"
-#include "SubscriberService.h"
+#include "PublisherService.h"
 
-void Subscriber::Subscribe(TMsgType msgType, SubscriberService* subscriberService)
+void Subscriber::Subscribe(TMsgType msgType, PublisherService* publisherService)
 {
-	subscriberService->AddSubscriber(msgType, this);
+	publisherService->AddSubscriber(msgType, this);
 }
 
-void Subscriber::UnSubscribe(TMsgType msgType, SubscriberService* subscriberService)
+void Subscriber::UnSubscribe(TMsgType msgType, PublisherService* publisherService)
 {
-	subscriberService->RemoveSubscriber(msgType, this);
+	publisherService->RemoveSubscriber(msgType, this);
 }

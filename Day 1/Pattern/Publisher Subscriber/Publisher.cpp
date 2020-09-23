@@ -1,7 +1,7 @@
 #include "Publisher.h"
-#include "SubscriberService.h"
+#include "PublisherService.h"
 
-void Publisher::PublishMessage(Message* msg, SubscriberService* subsriberService)
+void Publisher::PublishMessage(Message* msg, PublisherService* publisherService)
 {
-	subsriberService->AddMessage(msg);
+	publisherService->AddMessage(msg);
 }

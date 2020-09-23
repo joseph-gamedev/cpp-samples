@@ -7,10 +7,10 @@ enum  class TMsgType;
 class Message;
 class Subscriber;
 
-class SubscriberService
+class PublisherService
 {
 public:
-	~SubscriberService();
+	~PublisherService();
 	void AddMessage(Message* msg);
 	void AddSubscriber(TMsgType msgType, Subscriber* subscriber);
 	void RemoveSubscriber(TMsgType msgType, Subscriber* subscriber);

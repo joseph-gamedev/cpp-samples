@@ -1,10 +1,10 @@
 #pragma once
 
 class Message;
-class SubscriberService;
+class PublisherService;
 
 class Publisher
 {
 public:
-	void PublishMessage(Message* msg, SubscriberService* subsriberService);
+	void PublishMessage(Message* msg, PublisherService* publisherService);
 };

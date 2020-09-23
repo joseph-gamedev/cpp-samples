@@ -1,29 +1,29 @@
-#include "SubscriberService.h"
+#include "PublisherService.h"
 #include "Message.h"
 #include "Subscriber.h"
 
-SubscriberService::~SubscriberService()
+PublisherService::~PublisherService()
 {
 	m_messages.clear();
 	m_subscriberMap.clear();
 }
 
-void SubscriberService::AddMessage(Message* msg)
+void PublisherService::AddMessage(Message* msg)
 {
 	m_messages.push_back(msg);
 }
 
-void SubscriberService::AddSubscriber(TMsgType msgType, Subscriber* subscriber)
+void PublisherService::AddSubscriber(TMsgType msgType, Subscriber* subscriber)
 {
 	m_subscriberMap[msgType].push_back(subscriber);
 }
 
-void SubscriberService::RemoveSubscriber(TMsgType msgType, Subscriber* subscriber)
+void PublisherService::RemoveSubscriber(TMsgType msgType, Subscriber* subscriber)
 {
 	m_subscriberMap.erase(msgType);
 }
 
-void SubscriberService::BroadCast()
+void PublisherService::BroadCast()
 {
 	for (int count = 0; count < m_messages.size(); count++)
 	{
@@ -39,7 +39,7 @@ void SubscriberService::BroadCast()
 	}
 }
 
-void SubscriberService::ClearAllMessages()
+void PublisherService::ClearAllMessages()
 {
 	for (auto msg : m_messages)
 	{
