@@ -93,11 +93,40 @@ void BubbleSort(std::vector<T>& items)
 }
 
 
+template<class T >
+void InsertionSort(std::vector<T>& items)
+{
+	T selElement;
+
+	int j = 0;
+	size_t length = items.size();
+
+	//Iterater from i to size of array
+	for (size_t index = 1; index < length; index++)
+	{
+		//while iterating  
+		selElement = items[index];
+		j = index - 1; // predecessor index
+
+		//Compare the current element to its predecessor 
+		//if current element is smaller ,compare to elements before
+		while (j >= 0 && items[j] > selElement)
+		{
+			//Shift  position to the right to make way for inserting selElement
+			items[j +1]  = items[j]; 
+			j = j - 1;
+		}
+		//Selected Element is inserted in its final position
+		items[j + 1] = selElement;
+	}
+};
+
 int main()
 {
 	std::vector<int> arr = { 5, 7, 4, 2, 8, 6, 1, 9, 0, 3 , 100, 97, 98};
 	//Sorting::QuickSort(arr.begin(), arr.end());
-	arr = MergeSort(arr);
+	//arr = 
+		InsertionSort(arr);
 
     std::cout << "Hello World!\n";
 }
