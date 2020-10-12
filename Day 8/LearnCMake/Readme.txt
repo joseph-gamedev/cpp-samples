@@ -1,0 +1,1 @@
+cmake -S "CMake root folder" -B "Build Folder"
